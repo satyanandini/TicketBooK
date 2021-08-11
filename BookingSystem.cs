@@ -8,35 +8,54 @@ namespace TicketBooK
 {
     public class BookingSystem
     {
-        public int TotalTickets { get; set; }
-
-        public int TotalBookTickets;
-
-        public int TotalRemaingTickets { get; set; }
-
-        List<Ticket> Ticketlist = new List<Ticket>();
-        static int ticketid;
-
-        string BookingDetail { get; set; }
-        public void BookTicket(User user,string TicketDetails)
+        public BookingSystem()
         {
-            user.UseralocattedTicket = CreateTicket(ticketid, TicketDetails);
-            TotalBookTickets = Ticketlist.Count;
-            TotalRemaingTickets = TotalTickets - TotalBookTickets;
+            this.TotalTicketsCount = 60;
+
+            //populate total tickets
+            //write methods call create ticket and add to totalticket list
+
+            
+        }
+        private readonly int TotalTicketsCount;
+
+        private List<BookingDetails> bookingHistory = new List<BookingDetails>();
+
+        private List<Ticket> TotalTickets = new List<Ticket>();
+
+        public int AvailableTicketsCount
+        {
+            get { return TotalTickets.Where((Ticket) => Ticket.IsAvailable == true).Count(); }
         }
 
-        private Ticket CreateTicket(int id,string details)
+      
+        public async Task<BookingDetails> BookTicket(User user)
+        {
+            // Check the tickects availabity
+            // assign a ticket to particular user  (update ticket availabilty as false)
+            // Add to Booking History
+            // return BookingDetails;
+           
+        }
+
+        private async Task<Ticket> CreateTicket(int id,string details)
         {
             Ticket ticket = new Ticket(ticketid, details);
             Ticketlist.Add(ticket);
             ticketid++;
             Console.WriteLine("Ticket created");
-            return ticket;
+           return await Task.Run( )
+           // return ticket;
         }
 
-        public void ShowRemaingTicket()
+        public void ShowRemaingTickets()
         {
             Console.WriteLine("Remaining Tickets "+ TotalRemaingTickets);
+        }
+
+        public void ShowBookedTickets()
+        {
+            Console.WriteLine("Remaining Tickets " + TotalBookTickets);
         }
     }
 }

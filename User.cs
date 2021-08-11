@@ -8,21 +8,25 @@ namespace TicketBooK
 {
     public class User
     {
-        public User()
+        public User(int id,String Name)
         {
-
+            this.UserId = id;
+            this.UserName = Name;
         }
-        public int UserId { get; set; }
-        public string UserName { get; set; }
+        private int UserId { get; set; }
+        private string UserName { get; set; }
 
-        public Ticket UseralocattedTicket { get; set; }
+    //    public Ticket UseralocattedTicket { get; set; }
 
-        public void ShowUserDetails()
+       /* public void ShowUserTicketDetails()
         {
             Console.WriteLine("User Id: " + UserId + " and " + UserName);
             Console.WriteLine("User ticket details ");
-            UseralocattedTicket.showTicketDetails();
-        }
+            if (UseralocattedTicket != null)
+            {
+            }
+          
+        }*/
 
 
     }

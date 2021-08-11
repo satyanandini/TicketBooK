@@ -13,13 +13,16 @@ namespace TicketBooK
             this.TicketID = tick;
             this.TicketDetails = Details;
         }
-        public int TicketID { get; set; }
+        private int TicketID { get; set; }
 
-        string TicketDetails { get; set; }
+        private string TicketDetails { get; set; }
 
-        public void showTicketDetails()
+        public bool IsAvailable { get; set; }
+
+      /*  public void showTicketDetails()
         {
             Console.WriteLine("Show user ticket details" + TicketID);
         }
+      */
     }
 }
