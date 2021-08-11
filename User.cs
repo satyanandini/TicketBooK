@@ -15,13 +15,13 @@ namespace TicketBooK
         public int UserId { get; set; }
         public string UserName { get; set; }
 
-        public Ticket Ticket { get; set; }
+        public Ticket UseralocattedTicket { get; set; }
 
         public void ShowUserDetails()
         {
             Console.WriteLine("User Id: " + UserId + " and " + UserName);
             Console.WriteLine("User ticket details ");
-            Ticket.showTicketDetails();
+            UseralocattedTicket.showTicketDetails();
         }
 
 

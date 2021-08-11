@@ -17,19 +17,26 @@ namespace TicketBooK
         List<Ticket> Ticketlist = new List<Ticket>();
         static int ticketid;
 
-        string BookingDetail { get; set; };
-        public void BookTicket(User user,)
+        string BookingDetail { get; set; }
+        public void BookTicket(User user,string TicketDetails)
         {
-            CreateTicket(ticketid,);
-            user.Ticketid = 
+            user.UseralocattedTicket = CreateTicket(ticketid, TicketDetails);
             TotalBookTickets = Ticketlist.Count;
+            TotalRemaingTickets = TotalTickets - TotalBookTickets;
         }
 
-        private Ticket CreateTicket()
+        private Ticket CreateTicket(int id,string details)
         {
-            Ticketlist.Add(new Ticket(1, "ticketforRAKI"));
+            Ticket ticket = new Ticket(ticketid, details);
+            Ticketlist.Add(ticket);
+            ticketid++;
             Console.WriteLine("Ticket created");
-            Ticketlist.
+            return ticket;
+        }
+
+        public void ShowRemaingTicket()
+        {
+            Console.WriteLine("Remaining Tickets "+ TotalRemaingTickets);
         }
     }
 }
